@@ -17,9 +17,9 @@ function GetInstalledPrograms{
     $InstalledProgramsRaw = @()
 	$InstalledProgramsRaw += SortApplications 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*'
 	$InstalledProgramsRaw += SortApplications 'HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
-	$InstalledProgramsRaw | Sort-Object -Property Name | Export-Csv C:\Users\Public\Documents\apps.csv
-    $InstalledProgramsSorted = import-csv "C:\Users\Public\Documents\apps.csv"
-    Remove-Item "C:\Users\Public\Documents\apps.csv"
+	$InstalledProgramsRaw | Sort-Object -Property Name | Export-Csv C:\apps.csv
+    $InstalledProgramsSorted = import-csv "C:\apps.csv"
+    Remove-Item "C:\apps.csv"
     return $InstalledProgramsSorted
 }
 function Retrievinator{
